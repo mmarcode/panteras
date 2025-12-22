@@ -1,22 +1,32 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import { ClientRouter } from "astro:transitions";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+const { title = "Panteras Basket | Nicolás Romero" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <meta
+            name="description"
+            content="Escuela de Baloncesto Panteras en Nicolás Romero. Formación deportiva y valores."
+        />
+        <ClientRouter />
+    </head>
+
+    <body
+        class="bg-pantera-black text-white antialiased flex flex-col min-h-screen"
+    >
+        <main class="flex-grow">
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>

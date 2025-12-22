@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    @apply antialiased text-white bg-pantera-black selection:bg-pantera-green selection:text-pantera-black;
+  }
+  
+  body {
+    @apply overflow-x-hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60;
+  }
+  
+  .text-gradient-yellow {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-pantera-green to-pantera-accent;
+  }
+}
