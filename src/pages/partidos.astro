@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 import Header from "../components/Header.astro";
 import MatchCard from "../components/MatchCard.astro";
 import Section from "../components/Section.astro";
@@ -50,7 +50,7 @@ const matches = [
 ];
 ---
 
-<Layout title="Partidos | Panteras">
+<MainLayout title="Partidos | Panteras">
     <Header />
 
     <Section class="pt-32 pb-10">
@@ -66,4 +66,4 @@ const matches = [
             {matches.map((match) => <MatchCard {...match} />)}
         </div>
     </Section>
-</Layout>
+</MainLayout>

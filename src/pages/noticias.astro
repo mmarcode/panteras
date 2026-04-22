@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 import Header from "../components/Header.astro";
 import Section from "../components/Section.astro";
 import NewsCard from "../components/NewsCard.astro";
@@ -50,7 +50,7 @@ const news = [
 ];
 ---
 
-<Layout title="Noticias | Panteras">
+<MainLayout title="Noticias | Panteras">
     <Header />
 
     <Section class="pt-32 pb-10">
@@ -65,4 +65,4 @@ const news = [
             {news.map((item) => <NewsCard {...item} />)}
         </div>
     </Section>
-</Layout>
+</MainLayout>
