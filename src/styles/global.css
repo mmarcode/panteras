@@ -1,17 +1,46 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* Colores */
+  --color-pantera-black: #15171c;
+  --color-pantera-gray: #212328;
+  --color-pantera-accent: #71a500;
+  --color-pantera-green: #b5de27;
+
+  /* Tipografías */
+  --font-sans: "Inter", "system-ui", "sans-serif";
+  --font-heading: "Inter", "system-ui", "sans-serif";
+
+  /* Sombras */
+  --shadow-glow: 0 0 20px rgba(250, 204, 21, 0.3);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+  /* Imágenes de fondo */
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-hero-pattern: url('/assets/pattern.svg');
+
+  /* Animaciones y Keyframes */
+  --animate-fade-in: fadeIn 0.8s ease-out forwards;
+  --animate-slide-up: slideUp 0.8s ease-out forwards;
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
 
 @layer base {
   html {
     scroll-behavior: smooth;
     @apply antialiased text-white bg-pantera-black selection:bg-pantera-green selection:text-pantera-black;
   }
-  
   body {
     @apply overflow-x-hidden;
   }
-
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading tracking-tight;
   }
@@ -21,7 +50,6 @@
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60;
   }
-  
   .text-gradient-yellow {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-pantera-green to-pantera-accent;
   }

@@ -1,8 +1,22 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import { defineConfig } from 'astro/config'
+import { fileURLToPath } from 'node:url'
+import tailwindcss from '@tailwindcss/vite'
 
-// https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()],
+  output: 'static',
+  base: '/',
+  vite: {
+    plugins: [
+      tailwindcss()
+    ],
+    build: {
+      sourcemap: false
+    },
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+      }
+    }
+  }
 });
