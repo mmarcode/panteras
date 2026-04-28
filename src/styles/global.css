@@ -3,7 +3,11 @@
 @theme {
   /* Colores */
   --color-pantera-black: #15171c;
+
   --color-pantera-gray: #212328;
+  --color-panteras-gray2: #040404;
+  --color-panteras-gray3: #f6f7f9;
+
   --color-pantera-accent: #71a500;
   --color-pantera-green: #b5de27;
 

@@ -2,10 +2,12 @@
 import { defineConfig } from 'astro/config'
 import { fileURLToPath } from 'node:url'
 import tailwindcss from '@tailwindcss/vite'
+import icon from 'astro-icon'
 
 export default defineConfig({
   output: 'static',
   base: '/',
+  integrations: [icon()],
   vite: {
     plugins: [
       tailwindcss()

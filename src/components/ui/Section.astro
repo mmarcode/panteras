@@ -1,0 +1,30 @@
+---
+interface Props {
+  id?: string
+  class?: string
+  containerClass?: string
+  withBorder?: boolean
+}
+
+const { id, class: className, containerClass, withBorder = false } = Astro.props
+---
+
+<section
+  id={id}
+  class:list={[
+    'relative py-8 md:py-12 lg:py-16',
+    { 'border-b border-hc-gray10 dark:border-hc-gray11': withBorder },
+    className,
+  ]}
+>
+  <slot name="background" />
+
+  <div
+    class:list={[
+      'container mx-auto px-2 lg:px-8 relative z-10',
+      containerClass,
+    ]}
+  >
+    <slot />
+  </div>
+</section>
