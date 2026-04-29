@@ -3,7 +3,7 @@ import { Icon } from 'astro-icon/components'
 
 const baseLink = 'px-4 py-2 rounded-md transition-colors flex items-center gap-1'
 const activeLink = 'bg-hc-green1 text-hc-white'
-const inactiveLink = 'hover:bg-panteras-gray3 dark:hover:bg-panteras-gray3/15'
+const inactiveLink = ''
 
 const navItems = [
   { path: 'nosotros', label: 'Acerca de' },
@@ -42,7 +42,7 @@ const navItems = [
             <a
               href="/"
               aria-current={active ? 'page' : undefined}
-              class={`${baseLink} ${active ? activeLink : inactiveLink}`}
+              class={`class="text__glowing text-sm font-medium text-white/80 hover:text-pantera-green transition-colors duration-300 relative group ${baseLink} ${active ? activeLink : inactiveLink}`}
             >
               {item.label}
             </a>
@@ -52,3 +52,14 @@ const navItems = [
     }
   </ul>
 </nav>
+
+<style>
+  .text__glowing {
+    transition: text-shadow 0.3s ease;
+  }
+
+  .text__glowing:hover {
+    text-shadow:
+    2px 2px 20px #fff;
+  }
+</style>
