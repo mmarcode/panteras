@@ -1,0 +1,64 @@
+---
+import { Image } from "astro:assets";
+import Button from "../Button.astro";
+import Logo from "@/assets/images/logo.webp";
+---
+
+<section
+  id="hero"
+  class="relative min-h-screen flex items-center justify-center overflow-hidden"
+>
+  <div class="absolute inset-0 bg-pantera-black">
+    <div class="absolute inset-0 bg-gradient-radial from-pantera-gray to-pantera-black opacity-80" />
+    <div class="absolute inset-0 bg-[url('/assets/pattern.svg')] opacity-10 mix-blend-overlay" />
+
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-pantera-green/8 rounded-full blur-[300px]" />
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pantera-green/15 rounded-full blur-[180px]" />
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] bg-pantera-green/25 rounded-full blur-[80px]" />
+
+    <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-pantera-green/5 to-transparent" />
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-6xl px-6 text-center">
+    <div class="animate-fade-in">
+      <div class="relative inline-block mb-10">
+        <div class="absolute inset-0 scale-[2.5] bg-pantera-green/10 rounded-full blur-3xl" />
+        <Image
+          src={Logo}
+          alt="Panteras Basket"
+          width={800}
+          height={533}
+          class="relative mx-auto drop-shadow-[0_0_80px_rgba(181,222,39,0.5)] hover:drop-shadow-[0_0_120px_rgba(181,222,39,0.7)] transition-all duration-700 hover:scale-105"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+
+      <p class="text-white/50 text-sm sm:text-base tracking-[0.3em] uppercase mb-8 font-light">
+        Disciplina · Técnica · Valores
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <Button href="#convocatorias" variant="primary" class="w-full sm:w-auto shadow-lg shadow-pantera-green/25 hover:shadow-pantera-green/40">
+          Inscríbete Ahora
+        </Button>
+        <Button href="#partidos" variant="secondary" class="w-full sm:w-auto">
+          Ver Partidos
+        </Button>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-white/30">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+
+  <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
+    <svg viewBox="0 0 1178 55.21875" preserveAspectRatio="none" class="w-full h-[60px] md:h-[80px]" xmlns="http://www.w3.org/2000/svg">
+      <polygon style="opacity:0.5;fill:#16181d;" points="0,0 1178,27.609375 0,55.21875" />
+      <polygon style="fill:#15171c;" points="1178,0 1178,55.21875 0,55.21875" />
+    </svg>
+  </div>
+</section>

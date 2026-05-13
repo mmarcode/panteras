@@ -1,0 +1,41 @@
+---
+import Section from "../Section.astro";
+import NewsCard from "../NewsCard.astro";
+
+const latestNews = [
+  {
+    title: "Inicia la temporada 2026",
+    excerpt: "Nuestros equipos están listos para enfrentar los nuevos retos de la liga estatal.",
+    date: "10 Oct 2026",
+    image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    title: "Convocatoria abierta",
+    excerpt: "Buscamos nuevos talentos para nuestras categorías juveniles. ¡Asiste a las pruebas!",
+    date: "05 Oct 2026",
+    image: "https://images.unsplash.com/photo-1519861531473-920026393112?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    title: "Campeones Regionales",
+    excerpt: "La categoría U-13 se corona campeona en el torneo regional de verano.",
+    date: "28 Sep 2026",
+    image: "https://images.unsplash.com/photo-1518407613690-d9fc990e795f?auto=format&fit=crop&q=80&w=800",
+  },
+];
+---
+
+<Section id="noticias">
+  <div class="text-center mb-16">
+    <span class="text-pantera-green font-bold tracking-wider uppercase text-sm">Medios</span>
+    <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
+      Últimas Noticias
+    </h2>
+    <p class="text-white/60">
+      Mantente al día con lo que sucede en nuestra academia.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {latestNews.map((news) => <NewsCard {...news} />)}
+  </div>
+</Section>

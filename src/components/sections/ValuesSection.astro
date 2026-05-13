@@ -1,0 +1,84 @@
+---
+import { Image } from "astro:assets";
+import Section from "../Section.astro";
+
+interface GalleryImage {
+  src: ImageMetadata;
+  alt: string;
+}
+
+const modules = import.meta.glob<{ default: ImageMetadata }>(
+  '@/assets/images/gallery/*.{jpg,jpeg}',
+  { eager: true }
+);
+
+const images: GalleryImage[] = Object.entries(modules).map(([path, mod]) => {
+  const name = path.split('/').pop()?.replace(/\.[^.]+$/, '') ?? 'Panteras';
+  const alt = name
+    .replace(/[-_]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return { src: mod.default, alt };
+});
+---
+
+<Section id="valores" class="bg-pantera-black">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6">
+      Más que un equipo, <span class="text-pantera-green">una familia</span>
+    </h2>
+    <p class="text-white/60 max-w-2xl mx-auto text-lg">
+      En Panteras no solo enseñamos a jugar baloncesto, formamos
+      personas con valores que trascienden la cancha.
+    </p>
+  </div>
+
+  <div class="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3 mb-20">
+    {images.map((img, i) => (
+      <div class="break-inside-avoid overflow-hidden rounded-xl group relative">
+        <Image
+          src={img.src}
+          alt={img.alt}
+          width={500}
+          class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+          <span class="text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
+            {img.alt}
+          </span>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {
+      [
+        {
+          title: "Disciplina",
+          desc: "Constancia y esfuerzo en cada entrenamiento para alcanzar la excelencia.",
+        },
+        {
+          title: "Trabajo en Equipo",
+          desc: "Aprendemos a confiar en nuestros compañeros y a jugar unidos.",
+        },
+        {
+          title: "Pasión",
+          desc: "Vivimos el baloncesto con intensidad y amor por el deporte.",
+        },
+      ].map((value) => (
+        <div class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition duration-300 text-center group">
+          <div class="w-16 h-16 mx-auto bg-pantera-green/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-8 h-8 text-pantera-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">{value.title}</h3>
+          <p class="text-white/60">{value.desc}</p>
+        </div>
+      ))
+    }
+  </div>
+</Section>
